@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создать новую задачу</title>
+</head>
+<body>
+    <h1>Создать новую задачу</h1>
+    <form method="post">
+        <label for="description">Описание:</label><br>
+        <input type="text" id="description" name="description"><br>
+        <label for="deadline">Срок выполнения:</label><br>
+        <input type="date" id="deadline" name="deadline"><br>
+        <label for="priority">Приоритет:</label><br>
+        <input type="number" id="priority" name="priority"><br>
+        <button type="submit">Создать задачу</button>
+    </form>
+    <a href="{{ url_for('tasks') }}">Назад к списку задач</a>
+</body>
+</html>

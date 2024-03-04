@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о задаче</title>
+</head>
+<body>
+    <h1>Информация о задаче</h1>
+    <p><strong>Описание:</strong> {{ task.description }}</p>
+    <p><strong>Срок выполнения:</strong> {{ task.deadline }}</p>
+    <p><strong>Приоритет:</strong> {{ task.priority }}</p>
+    {% if not task.completed %}
+    <form action="{{ url_for('complete_task', id=task.id) }}" method="post">
+        <button type="submit">Завершить задачу</button>
+    </form>
+    {% else %}
+    <p>Задача завершена</p>
+    {% endif %}
+    <form action="{{ url_for('delete_task', id=task.id) }}" method="post">
+        <button type="submit">Удалить</button>
+    </form>
+    <a href="{{ url_for('edit_task', id=task.id) }}">Редактировать</a>
+    <a href="{{ url_for('tasks') }}">Назад к списку задач</a>
+</body>
+</html>
